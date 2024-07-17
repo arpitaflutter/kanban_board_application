@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:kanban_board_app/Screens/create_board/controller/create_board_controller.dart';
 import 'package:kanban_board_app/Screens/home_page/model/home_model.dart';
 import 'package:kanban_board_app/global_variables.dart';
+import 'package:kanban_board_app/l10n/app_localizations.dart';
 
 class CreateBoardScreen extends StatefulWidget {
   final bool isBoard;
@@ -40,7 +41,7 @@ class _CreateBoardScreenState extends State<CreateBoardScreen> {
             backgroundColor: defaultColor.value,
             iconTheme: const IconThemeData(color: Colors.white),
             title: Text(
-              widget.isBoard == true ? "Create Board" : "Create New Task",
+              widget.isBoard == true ? AppLocalizations.of(context)!.createBoard : AppLocalizations.of(context)!.createNewTask,
               style: const TextStyle(color: Colors.white),
             ),
           ),
@@ -51,7 +52,7 @@ class _CreateBoardScreenState extends State<CreateBoardScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    widget.isBoard == true ? "Board Name: " : "Title",
+                    widget.isBoard == true ? AppLocalizations.of(context)!.boardName : AppLocalizations.of(context)!.title,
                     style: const TextStyle(fontSize: 15, color: Colors.black54),
                   ),
                   TextField(
@@ -63,9 +64,9 @@ class _CreateBoardScreenState extends State<CreateBoardScreen> {
                   const SizedBox(
                     height: 20,
                   ),
-                  const Text(
-                    "Description: ",
-                    style: TextStyle(fontSize: 15, color: Colors.black54),
+                  Text(
+                      AppLocalizations.of(context)!.description,
+                    style: const TextStyle(fontSize: 15, color: Colors.black54),
                   ),
                   TextField(
                     controller: controller.txtDescription,
@@ -98,7 +99,7 @@ class _CreateBoardScreenState extends State<CreateBoardScreen> {
                     width: 5,
                   ),
                   Text(
-                    widget.index == null ? "Create" : "Update",
+                    widget.index == null ? AppLocalizations.of(context)!.create : AppLocalizations.of(context)!.update,
                     style: const TextStyle(
                       color: Colors.white,
                     ),

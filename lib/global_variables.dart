@@ -4,3 +4,4 @@ import 'package:kanban_board_app/Screens/home_page/model/home_model.dart';
 
 Rx<Color> defaultColor = Colors.blue.obs;
 RxList<HomeModel> createdBoardList = <HomeModel>[].obs;
+RxList boardsList = [].obs;

@@ -6,6 +6,7 @@ import 'package:kanban_board_app/Screens/create_board/view/create_board_screen.d
 import 'package:kanban_board_app/Screens/home_page/model/home_model.dart';
 import 'package:kanban_board_app/Screens/task_page/controller/task_controller.dart';
 import 'package:kanban_board_app/global_variables.dart';
+import 'package:kanban_board_app/l10n/app_localizations.dart';
 
 class TaskScreen extends StatefulWidget {
   final HomeModel homeModel;
@@ -37,9 +38,9 @@ class _TaskScreenState extends State<TaskScreen> {
           appBar: AppBar(
             iconTheme: const IconThemeData(color: Colors.white),
             backgroundColor: defaultColor.value,
-            title: const Text(
-              "Task",
-              style: TextStyle(color: Colors.white),
+            title: Text(
+              AppLocalizations.of(context)!.task,
+              style: const TextStyle(color: Colors.white),
             ),
           ),
           body: SafeArea(
@@ -59,9 +60,9 @@ class _TaskScreenState extends State<TaskScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text(
-                            'Title',
-                            style: TextStyle(
+                          Text(
+                            AppLocalizations.of(context)!.title,
+                            style: const TextStyle(
                               fontSize: 15,
                               color: Colors.black54,
                             ),
@@ -108,9 +109,9 @@ class _TaskScreenState extends State<TaskScreen> {
                       ),
                       SizedBox(
                           height: MediaQuery.of(context).size.height * 0.01),
-                      const Text(
-                        'Created At',
-                        style: TextStyle(
+                      Text(
+                        AppLocalizations.of(context)!.createdAt,
+                        style: const TextStyle(
                           fontSize: 15,
                           color: Colors.black54,
                         ),
@@ -159,9 +160,9 @@ class _TaskScreenState extends State<TaskScreen> {
                       ),
                       SizedBox(
                           height: MediaQuery.of(context).size.height * 0.01),
-                      const Text(
-                        'Description',
-                        style: TextStyle(
+                      Text(
+                        AppLocalizations.of(context)!.description,
+                        style: const TextStyle(
                           fontSize: 15,
                           color: Colors.black54,
                         ),
@@ -190,9 +191,9 @@ class _TaskScreenState extends State<TaskScreen> {
                       ),
                       Visibility(
                         visible: widget.isProgress ?? false,
-                        child: const Text(
-                          'Time Log',
-                          style: TextStyle(
+                        child: Text(
+                          AppLocalizations.of(context)!.timeLog,
+                          style: const TextStyle(
                             fontSize: 15,
                             color: Colors.black54,
                           ),
@@ -263,9 +264,11 @@ class _TaskScreenState extends State<TaskScreen> {
                                                         controller.duration;
                                                     Get.back();
                                                   },
-                                                  child: const Text(
-                                                    "Ok",
-                                                    style: TextStyle(
+                                                  child: Text(
+                                                    AppLocalizations.of(
+                                                            context)!
+                                                        .ok,
+                                                    style: const TextStyle(
                                                         color: Colors.black54,
                                                         fontSize: 20),
                                                   ),
@@ -274,9 +277,11 @@ class _TaskScreenState extends State<TaskScreen> {
                                                   onTap: () {
                                                     Get.back();
                                                   },
-                                                  child: const Text(
-                                                    "Cancel",
-                                                    style: TextStyle(
+                                                  child: Text(
+                                                    AppLocalizations.of(
+                                                            context)!
+                                                        .cancel,
+                                                    style: const TextStyle(
                                                         color: Colors.black54,
                                                         fontSize: 20),
                                                   ),
@@ -290,10 +295,11 @@ class _TaskScreenState extends State<TaskScreen> {
                                   );
                                 },
                                 icon: const Icon(Icons.watch_later),
-                                label: Obx(() => Text(
-                                    controller.time.value.inSeconds != 0
-                                        ? "Update Time"
-                                        : "Add Time")),
+                                label: Obx(() => Text(controller
+                                            .time.value.inSeconds !=
+                                        0
+                                    ? AppLocalizations.of(context)!.updateTime
+                                    : AppLocalizations.of(context)!.addTime)),
                               ),
                             ],
                           ),
@@ -426,14 +432,14 @@ class _TaskScreenState extends State<TaskScreen> {
                           controller.count.value = value.length;
                         },
                         controller: controller.txtComment,
-                        decoration: const InputDecoration(
-                          border: OutlineInputBorder(
+                        decoration: InputDecoration(
+                          border: const OutlineInputBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(50))),
-                          focusedBorder: OutlineInputBorder(
+                          focusedBorder: const OutlineInputBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(50))),
-                          hintText: 'Write here...',
+                          hintText: AppLocalizations.of(context)!.writeHere,
                         ),
                       ),
                     ),

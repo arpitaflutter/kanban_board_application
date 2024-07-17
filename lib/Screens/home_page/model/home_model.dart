@@ -14,4 +14,20 @@ class HomeModel {
       required this.todoList,
       required this.inProgressList,
       required this.doneList});
+
+  factory HomeModel.fromJson(Map<String, dynamic> json) => HomeModel(
+        name: json["name"],
+        description: json["desc"],
+        todoList: json['todoList'],
+        inProgressList: json['progressList'],
+        doneList: json['doneList'],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "desc": description,
+        "name": name,
+        "todoList": todoList,
+        "progressList": inProgressList,
+        "doneList": doneList
+      };
 }

@@ -4,6 +4,7 @@ import 'package:kanban_board_app/Screens/create_board/view/create_board_screen.d
 import 'package:kanban_board_app/Screens/home_page/controller/home_controller.dart';
 import 'package:kanban_board_app/Screens/setting_page/view/setting_screen.dart';
 import 'package:kanban_board_app/images.dart';
+import 'package:kanban_board_app/l10n/app_localizations.dart';
 import 'package:kanban_board_app/todo/view/todo_screen.dart';
 import 'package:kanban_board_app/global_variables.dart';
 
@@ -25,8 +26,8 @@ class _HomeScreenState extends State<HomeScreen> {
             backgroundColor: Colors.white,
             appBar: AppBar(
               backgroundColor: defaultColor.value,
-              title: const Text(
-                "Kanban Board",
+              title: Text(
+                AppLocalizations.of(context)!.kanbanBoard,
                 style: TextStyle(color: Colors.white),
               ),
               actions: [
@@ -112,8 +113,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      const Text(
-                                        "To-Do - ",
+                                      Text(
+                                        AppLocalizations.of(context)!.toDo,
                                         style: TextStyle(
                                           fontSize: 15,
                                           fontWeight: FontWeight.normal,
@@ -144,9 +145,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      const Text(
-                                        "In-Progress - ",
-                                        style: TextStyle(
+                                      Text(
+                                        AppLocalizations.of(context)!.inProgress,
+                                        style: const TextStyle(
                                           fontSize: 15,
                                           fontWeight: FontWeight.normal,
                                         ),
@@ -176,9 +177,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      const Text(
-                                        "Done - ",
-                                        style: TextStyle(
+                                      Text(
+                                        AppLocalizations.of(context)!.done,
+                                        style: const TextStyle(
                                           fontSize: 15,
                                           fontWeight: FontWeight.normal,
                                         ),

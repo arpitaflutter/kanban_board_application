@@ -6,6 +6,7 @@ import 'package:kanban_board_app/Screens/home_page/model/home_model.dart';
 import 'package:kanban_board_app/Screens/task_page/view/task_screen.dart';
 import 'package:kanban_board_app/global_variables.dart';
 import 'package:kanban_board_app/images.dart';
+import 'package:kanban_board_app/l10n/app_localizations.dart';
 import 'package:kanban_board_app/todo/controller/todo_controller.dart';
 import 'package:kanban_board_app/todo/model/todo_model.dart';
 
@@ -66,8 +67,8 @@ class _TodoScreenState extends State<TodoScreen> {
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(20),
                               ),
-                              child: const Text(
-                                'To - Do',
+                              child: Text(
+                                AppLocalizations.of(context)!.toDo,
                               ),
                             ),
                             Container(
@@ -136,8 +137,9 @@ class _TodoScreenState extends State<TodoScreen> {
                                                         .size
                                                         .height *
                                                     0.01),
-                                            const Text(
-                                              'Created At',
+                                            Text(
+                                              AppLocalizations.of(context)!
+                                                  .createdAt,
                                               style: TextStyle(
                                                 fontSize: 12,
                                                 color: Colors.black54,
@@ -213,9 +215,10 @@ class _TodoScreenState extends State<TodoScreen> {
                                                     .size
                                                     .height *
                                                 0.01),
-                                        const Text(
-                                          'Created At',
-                                          style: TextStyle(
+                                        Text(
+                                          AppLocalizations.of(context)!
+                                              .createdAt,
+                                          style: const TextStyle(
                                             fontSize: 12,
                                             color: Colors.black54,
                                             fontWeight: FontWeight.normal,
@@ -282,9 +285,10 @@ class _TodoScreenState extends State<TodoScreen> {
                                                     .size
                                                     .height *
                                                 0.01),
-                                        const Text(
-                                          'Created At',
-                                          style: TextStyle(
+                                        Text(
+                                          AppLocalizations.of(context)!
+                                              .createdAt,
+                                          style: const TextStyle(
                                             fontSize: 12,
                                             color: Colors.black54,
                                           ),
@@ -338,13 +342,13 @@ class _TodoScreenState extends State<TodoScreen> {
                           padding: const EdgeInsets.symmetric(horizontal: 10),
                           width: 220,
                           height: 50,
-                          child: const Row(
+                          child: Row(
                             children: [
-                              Icon(Icons.add),
-                              SizedBox(width: 10),
+                              const Icon(Icons.add),
+                              const SizedBox(width: 10),
                               Text(
-                                "New",
-                                style: TextStyle(fontSize: 16),
+                                AppLocalizations.of(context)!.neww,
+                                style: const TextStyle(fontSize: 16),
                               ),
                             ],
                           ),
@@ -393,8 +397,8 @@ class _TodoScreenState extends State<TodoScreen> {
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(20),
                                   ),
-                                  child: const Text(
-                                    'In - Progress',
+                                  child: Text(
+                                    AppLocalizations.of(context)!.inProgress,
                                   ),
                                 ),
                                 Container(
@@ -407,7 +411,8 @@ class _TodoScreenState extends State<TodoScreen> {
                                     borderRadius: BorderRadius.circular(20),
                                   ),
                                   child: Text(
-                                    widget.modelData.inProgressList.length.toString(),
+                                    widget.modelData.inProgressList.length
+                                        .toString(),
                                   ),
                                 )
                               ],
@@ -467,9 +472,10 @@ class _TodoScreenState extends State<TodoScreen> {
                                                                 .size
                                                                 .height *
                                                             0.01),
-                                                const Text(
-                                                  'Created At',
-                                                  style: TextStyle(
+                                                Text(
+                                                  AppLocalizations.of(context)!
+                                                      .createdAt,
+                                                  style: const TextStyle(
                                                     fontSize: 12,
                                                     color: Colors.black54,
                                                   ),
@@ -549,9 +555,10 @@ class _TodoScreenState extends State<TodoScreen> {
                                                         .size
                                                         .height *
                                                     0.01),
-                                            const Text(
-                                              'Created At',
-                                              style: TextStyle(
+                                            Text(
+                                              AppLocalizations.of(context)!
+                                                  .createdAt,
+                                              style: const TextStyle(
                                                 fontSize: 12,
                                                 color: Colors.black54,
                                                 fontWeight: FontWeight.normal,
@@ -624,9 +631,10 @@ class _TodoScreenState extends State<TodoScreen> {
                                                         .size
                                                         .height *
                                                     0.01),
-                                            const Text(
-                                              'Created At',
-                                              style: TextStyle(
+                                            Text(
+                                              AppLocalizations.of(context)!
+                                                  .createdAt,
+                                              style: const TextStyle(
                                                 fontSize: 12,
                                                 color: Colors.black54,
                                               ),
@@ -680,13 +688,13 @@ class _TodoScreenState extends State<TodoScreen> {
                                   const EdgeInsets.symmetric(horizontal: 10),
                               width: 220,
                               height: 50,
-                              child: const Row(
+                              child: Row(
                                 children: [
-                                  Icon(Icons.add),
-                                  SizedBox(width: 10),
+                                  const Icon(Icons.add),
+                                  const SizedBox(width: 10),
                                   Text(
-                                    "New",
-                                    style: TextStyle(fontSize: 16),
+                                    AppLocalizations.of(context)!.neww,
+                                    style: const TextStyle(fontSize: 16),
                                   ),
                                 ],
                               ),
@@ -718,7 +726,8 @@ class _TodoScreenState extends State<TodoScreen> {
                       } else {
                         Get.dialog(
                           // barrierDismissible: false,
-                          AlertDialog(backgroundColor: Colors.white,
+                          AlertDialog(
+                            // backgroundColor: Colors.white,
                             content: Container(
                               width: 300,
                               height: 210,
@@ -733,10 +742,11 @@ class _TodoScreenState extends State<TodoScreen> {
                                     width: 80,
                                     height: 80,
                                   ),
-                                  const Text(
-                                    "A task's status cannot be changed to Done until the time is logged.",
+                                  Text(
+                                    AppLocalizations.of(context)!
+                                        .aTaskStatusCannotBeChangedToDoneUntilTheTimeIsLogged,
                                     textAlign: TextAlign.center,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Colors.black54,
                                       fontSize: 14,
                                     ),
@@ -747,10 +757,14 @@ class _TodoScreenState extends State<TodoScreen> {
                                     onPressed: () {
                                       Get.back();
                                     },
-                                    label: const Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(horizontal: 10),
-                                      child: Text("Close",style: TextStyle(color: Colors.white),),
+                                    label: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 10),
+                                      child: Text(
+                                        AppLocalizations.of(context)!.close,
+                                        style: const TextStyle(
+                                            color: Colors.white),
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -777,28 +791,29 @@ class _TodoScreenState extends State<TodoScreen> {
                                 Container(
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 10, vertical: 5),
-                                  margin:
-                                  const EdgeInsets.symmetric(horizontal: 10),
+                                  margin: const EdgeInsets.symmetric(
+                                      horizontal: 10),
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(20),
                                   ),
-                                  child: const Text(
-                                    'Done',
+                                  child: Text(
+                                    AppLocalizations.of(context)!.done,
                                   ),
                                 ),
                                 Container(
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 10, vertical: 5),
-                                  margin:
-                                  const EdgeInsets.symmetric(horizontal: 10),
+                                  margin: const EdgeInsets.symmetric(
+                                      horizontal: 10),
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(20),
                                   ),
                                   child: Obx(
-                                        () => Text(
-                                      widget.modelData.doneList.length.toString(),
+                                    () => Text(
+                                      widget.modelData.doneList.length
+                                          .toString(),
                                     ),
                                   ),
                                 )
@@ -848,9 +863,10 @@ class _TodoScreenState extends State<TodoScreen> {
                                                       .size
                                                       .height *
                                                   0.01),
-                                          const Text(
-                                            'Created At',
-                                            style: TextStyle(
+                                          Text(
+                                            AppLocalizations.of(context)!
+                                                .createdAt,
+                                            style: const TextStyle(
                                               fontSize: 12,
                                               color: Colors.black54,
                                             ),

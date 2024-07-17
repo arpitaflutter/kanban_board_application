@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_rx/get_rx.dart';
+import 'package:kanban_board_app/Screens/create_board/add_data_database_helper.dart';
 import 'package:kanban_board_app/Screens/home_page/model/home_model.dart';
 import 'dart:core';
-
 import 'package:kanban_board_app/global_variables.dart';
 import 'package:kanban_board_app/todo/model/todo_model.dart';
 
 class CreateBoardController extends GetxController {
-  final bool isCreateBoard;
+  final bool? isCreateBoard;
   final int? index;
   final HomeModel? model;
   final bool? isTodo;
   final bool? isProgress;
 
   CreateBoardController(
-      {required this.isCreateBoard,
+      {this.isCreateBoard,
       this.index,
       this.model,
       this.isTodo,
@@ -32,7 +33,7 @@ class CreateBoardController extends GetxController {
       Get.snackbar("Alert", "Please Enter the Name.");
     } else if (txtDescription.text.isEmpty) {
       Get.snackbar("Alert", "Please Enter the description.");
-    } else if (isCreateBoard) {
+    } else if (isCreateBoard == true) {
       createdBoardList.add(HomeModel(
           name: name,
           description: desc,
@@ -77,5 +78,15 @@ class CreateBoardController extends GetxController {
 
     }
     Get.back();
+  }
+
+  void add({required String name, required String desc})
+  {
+    AddDataDatabaseHelper.databaseHelper.insertDB(desc: desc,name: name);
+  }
+
+  Future<void> readData()
+  async {
+    boardsList.value = await AddDataDatabaseHelper.databaseHelper.readDB();
   }
 }
