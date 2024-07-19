@@ -4,7 +4,7 @@ import 'package:kanban_board_app/todo/model/todo_model.dart';
 class HomeModel {
   final String name;
   final String description;
-  final RxList<TodoModel> todoList;
+  late final RxList<TodoModel> todoList;
   final RxList<TodoModel> inProgressList;
   final RxList<TodoModel> doneList;
 

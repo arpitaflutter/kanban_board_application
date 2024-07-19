@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kanban_board_app/Screens/create_board/controller/create_board_controller.dart';
 import 'package:kanban_board_app/Screens/create_board/view/create_board_screen.dart';
 import 'package:kanban_board_app/Screens/home_page/controller/home_controller.dart';
 import 'package:kanban_board_app/Screens/setting_page/view/setting_screen.dart';
@@ -16,6 +17,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  CreateBoardController createBoardController = Get.put(CreateBoardController());
+  @override
+  void initState() {
+    super.initState();
+    createBoardController.readData();
+  }
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(
@@ -72,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
-                                    createdBoardList[index].name,
+                                    createdBoardList[index]['name'],
                                     // "Kanban Board App app",
                                     maxLines: 2,
                                     style: const TextStyle(
@@ -93,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: Text(
-                                    createdBoardList[index].description,
+                                    createdBoardList[index]['desc'],
                                     // "Create the Kanban Board App",
                                     maxLines: 2,
                                   ),
@@ -123,7 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Obx(
                                         ()=> Text(
                                           // "0",
-                                          "${createdBoardList[index].todoList.length}",
+                                          "${createdBoardList[index]['todoList'].length}",
                                           style: const TextStyle(
                                             fontSize: 15,
                                             fontWeight: FontWeight.bold,
@@ -155,7 +164,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Obx(
                                         ()=> Text(
                                           // "0",
-                                          "${createdBoardList[index].inProgressList.length}",
+                                          "${createdBoardList[index]['progressList'].length}",
                                           style: const TextStyle(
                                             fontSize: 15,
                                             fontWeight: FontWeight.bold,
@@ -187,7 +196,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Obx(
                                         ()=> Text(
                                           // "0",
-                                          "${createdBoardList[index].doneList.length}",
+                                          "${createdBoardList[index]['doneList'].length}",
                                           style: const TextStyle(
                                             fontSize: 15,
                                             fontWeight: FontWeight.bold,

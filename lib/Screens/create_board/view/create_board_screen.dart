@@ -41,7 +41,9 @@ class _CreateBoardScreenState extends State<CreateBoardScreen> {
             backgroundColor: defaultColor.value,
             iconTheme: const IconThemeData(color: Colors.white),
             title: Text(
-              widget.isBoard == true ? AppLocalizations.of(context)!.createBoard : AppLocalizations.of(context)!.createNewTask,
+              widget.isBoard == true
+                  ? AppLocalizations.of(context)!.createBoard
+                  : AppLocalizations.of(context)!.createNewTask,
               style: const TextStyle(color: Colors.white),
             ),
           ),
@@ -52,7 +54,9 @@ class _CreateBoardScreenState extends State<CreateBoardScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    widget.isBoard == true ? AppLocalizations.of(context)!.boardName : AppLocalizations.of(context)!.title,
+                    widget.isBoard == true
+                        ? AppLocalizations.of(context)!.boardName
+                        : AppLocalizations.of(context)!.title,
                     style: const TextStyle(fontSize: 15, color: Colors.black54),
                   ),
                   TextField(
@@ -65,7 +69,7 @@ class _CreateBoardScreenState extends State<CreateBoardScreen> {
                     height: 20,
                   ),
                   Text(
-                      AppLocalizations.of(context)!.description,
+                    AppLocalizations.of(context)!.description,
                     style: const TextStyle(fontSize: 15, color: Colors.black54),
                   ),
                   TextField(
@@ -83,7 +87,7 @@ class _CreateBoardScreenState extends State<CreateBoardScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 12),
             child: FloatingActionButton(
               onPressed: () {
-                controller.addData(
+                controller.addTask(
                     name: controller.txtBoardName.text,
                     desc: controller.txtDescription.text);
                 // Get.to(()=> TodoScreen());
@@ -99,7 +103,9 @@ class _CreateBoardScreenState extends State<CreateBoardScreen> {
                     width: 5,
                   ),
                   Text(
-                    widget.index == null ? AppLocalizations.of(context)!.create : AppLocalizations.of(context)!.update,
+                    widget.index == null
+                        ? AppLocalizations.of(context)!.create
+                        : AppLocalizations.of(context)!.update,
                     style: const TextStyle(
                       color: Colors.white,
                     ),
